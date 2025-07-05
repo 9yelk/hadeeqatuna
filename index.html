@@ -8,38 +8,16 @@
 </head>
 <body>
 
-  <!-- Login Screen -->
-  <div id="login-screen">
-    <div class="login-box">
-      <h2>Enter the garden</h2>
-      <input type="password" id="password" placeholder="Password" />
-      <button id="login-btn">Enter</button>
-      <p id="error-message"></p>
-    </div>
-  </div>
+  <h1>🌷 reyyan fanclub garden 🌷</h1>
 
-  <!-- Garden Container (hidden initially) -->
-  <div id="garden" style="display: none;">
-    <h1>🌷 reyyan fanclub garden 🌷</h1>
+  <div id="garden">
     <div class="garden-container">
-      <div class="flower" style="left: 150px;" data-compliment="These flowers are all for you, because your smile always makes my day my pretty girl =)">
-        <img src="assets/flower1.png" alt="Flower 1" />
-      </div>
-      <div class="flower" style="left: 400px;" data-compliment="You're the most beautiful soul I know, inside out. Each feature on your beautiful face, and your equally beautiful body, is nothing short of perfection, and my mind replays all of it constantly, unable to stop, for you're the rawest, purest source of beauty I've ever laid my eyes on.">
-        <img src="assets/flower2.png" alt="Flower 2" />
-      </div>
-      <div class="flower" style="left: 650px;" data-compliment="I miss you so much every moment we're apart wallah, and each minute stretches to an eternity, that I just sit and think, 'How fulfilling is her presence, for each second without her is a prick to my heart?'">
-        <img src="assets/flower3.png" alt="Flower 3" />
-      </div>
-      <div class="flower" style="left: 900px;" data-compliment="Everything you do captivates my heart reyyan, for how can one be so fucking adorable? Wallah billah you're the coolness of my eyes, and the refreshment to my soul.">
-        <img src="assets/flower4.png" alt="Flower 4" />
-      </div>
-      <div class="flower" style="left: 1150px;" data-compliment="You're my greatest ni3mah hayati, wallah, and nothing could ever change that. I'll repeat it for you again cutie, nothing could ever change the fact that you're my greatest ni3mah hayati, my pure angel, and i'm gonna love you with all my soul forever.">
-        <img src="assets/flower5.png" alt="Flower 5" />
-      </div>
-      <div class="flower" style="left: 1380px;" data-compliment="I love you so much reyyouni, with all my heart wallah, and always will. I'll always be your baba, your husband, and the man you call home. My heart is your home, and so are my arms, for you will always be loved, cherished, and protected by me, your amir.">
-        <img src="assets/flower6.png" alt="Flower 6" />
-      </div>
+      <div class="flower" style="left: 150px;" data-compliment="These flowers are all for you, because your smile always makes my day my pretty girl =)"><img src="assets/flower1.png" alt="Flower 1" /></div>
+      <div class="flower" style="left: 400px;" data-compliment="You're the most beautiful soul I know, inside out. Each feature on your beautiful face, and your equally beautiful body, is nothing short of perfection, and my mind replays all of it constantly, unable to stop, for you're the rawest, purest source of beauty I've ever laid my eyes on."><img src="assets/flower2.png" alt="Flower 2" /></div>
+      <div class="flower" style="left: 650px;" data-compliment="I miss you so much every moment we're apart wallah, and each minute stretches to an eternity, that I just sit and think, 'How fulfilling is her presence, for each second without her is a prick to my heart?'"><img src="assets/flower3.png" alt="Flower 3" /></div>
+      <div class="flower" style="left: 900px;" data-compliment="Everything you do captivates my heart reyyan, for how can one be so fucking adorable? Wallah billah you're the coolness of my eyes, and the refreshment to my soul."><img src="assets/flower4.png" alt="Flower 4" /></div>
+      <div class="flower" style="left: 1150px;" data-compliment="You're my greatest ni3mah hayati, wallah, and nothing could ever change that. I'll repeat it for you again cutie, nothing could ever change the fact that you're my greatest ni3mah hayati, my pure angel, and i'm gonna love you with all my soul forever."><img src="assets/flower5.png" alt="Flower 5" /></div>
+      <div class="flower" style="left: 1380px;" data-compliment="I love you so much reyyouni, with all my heart wallah, and always will. I'll always be your baba, your husband, and the man you call home. My heart is your home, and so are my arms, for you will always be loved, cherished, and protected by me, your amir."><img src="assets/flower6.png" alt="Flower 6" /></div>
     </div>
   </div>
 
@@ -56,6 +34,21 @@
     <source src="assets/music.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Password popup script -->
+  <script>
+    const correctPassword = "iluvdyelii";
+    const userPassword = prompt("Enter the garden password:");
+    if (userPassword !== correctPassword) {
+      alert("Incorrect password!");
+      document.body.innerHTML = ""; // clear page
+    } else {
+      // optional: fade in music
+      if (typeof startMusicFadeIn === "function") {
+        window.addEventListener("load", () => startMusicFadeIn());
+      }
+    }
+  </script>
 
   <script src="script.js"></script>
 </body>
