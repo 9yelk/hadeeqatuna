@@ -1,81 +1,19 @@
-/* Background and Text */
-body {
+/* Basic resets */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & fonts */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('assets/background.png') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Courier New', monospace;
-  text-align: center;
-  color: #5a2d3c;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Title */
-h1 {
-  margin-top: 20px;
-  font-size: 26px;
-  background-color: rgba(255, 255, 255, 0.7);
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 12px;
-}
-
-/* Garden Container */
-.garden-container {
+  overflow-x: hidden;
   position: relative;
-  width: 100%;
   height: 100vh;
-}
-
-/* Flowers */
-.flower {
-  position: absolute;
-  bottom: 100px;
-  transform: translateX(-50%);
-}
-
-.flower img {
-  width: 80px;
-  image-rendering: pixelated;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.flower img:hover {
-  transform: scale(1.2);
-}
-
-/* Compliment Popup */
-.popup {
-  position: fixed;
-  background-color: #ffeef2;
-  border: 1px solid #000;
-  padding: 20px 30px;
-  border-radius: 8px;
-  box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
-  z-index: 1000;
-  max-width: 320px;
-  transition: opacity 0.3s;
-}
-
-.popup p {
-  font-size: 18px;
-  color: #5a2d3c;
-  margin: 0;
-}
-
-/* Hide and Close */
-.hidden {
-  display: none;
-}
-
-body.popup-open {
-  pointer-events: none;
-}
-.popup-open .popup,
-.popup-open .flower {
-  pointer-events: auto;
+  color: #333;
 }
 
 /* Login Screen */
@@ -85,40 +23,144 @@ body.popup-open {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffe5ec;
+  background-color: #ffd6e8; /* Light pink */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 2000;
 }
 
 .login-box {
-  background-color: white;
-  border: 2px solid #ffc0cb;
+  background: white;
   padding: 30px 40px;
   border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
+.login-box h2 {
+  margin-bottom: 15px;
+  color: #a8004c;
+}
+
 .login-box input {
-  padding: 8px 12px;
-  font-size: 16px;
-  margin-top: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .login-box button {
-  margin-top: 10px;
-  padding: 8px 14px;
-  background-color: #f7c2d0;
+  background-color: #a8004c;
+  color: white;
+  padding: 10px 25px;
+  font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-.login-box p {
+.login-box button:hover {
+  background-color: #87003b;
+}
+
+#error-message {
   color: red;
   margin-top: 10px;
+  min-height: 18px;
+}
+
+/* Garden heading */
+#garden h1 {
+  text-align: center;
+  margin: 30px 0 20px;
+  font-weight: 700;
+  color: #5a0b3a;
+  text-shadow: 1px 1px 3px #ffc0cb;
+}
+
+/* Garden Container */
+.garden-container {
+  position: relative;
+  height: 980px; /* as per your flower image height */
+  max-width: 1536px;
+  margin: 0 auto 40px;
+}
+
+/* Each flower */
+.flower {
+  position: absolute;
+  bottom: 100px; /* all stems aligned 100px from bottom */
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.flower img {
+  width: 100px;
+  height: auto;
+  image-rendering: pixelated; /* crisp edges */
+}
+
+.flower:hover {
+  transform: scale(1.15);
+}
+
+/* Popup compliments */
+#popup {
+  position: absolute;
+  max-width: 300px;
+  background-color: #ffe4e1; /* light pink paper */
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Floating pixels container */
+#pixel-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1500;
+}
+
+/* Floating pixels */
+.floating-pixel {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #ffb6c1; /* Light pink */
+  opacity: 0;
+  image-rendering: pixelated;
+  animation: float 5s linear forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(30px) scale(0.8);
+    opacity: 0;
+  }
 }
