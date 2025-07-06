@@ -3,21 +3,6 @@ const bgMusic = document.getElementById("bg-music");
 let audioContext;
 let gainNode;
 
-// Login check
-function checkPassword() {
-  const password = document.getElementById("password").value;
-  const loginScreen = document.getElementById("login-screen");
-  const garden = document.getElementById("garden");
-
-  if (password === "anabhebdyeli") {
-    loginScreen.style.display = "none";
-    garden.style.display = "block";
-    startMusicFadeIn();
-  } else {
-    document.getElementById("error-message").textContent = "Incorrect password.";
-  }
-}
-
 // Fade in the music smoothly
 function startMusicFadeIn() {
   if (!audioContext) {
@@ -53,7 +38,10 @@ flowers.forEach((flower) => {
       left = window.innerWidth - popupWidth - 20;
     }
     popup.style.left = left + "px";
-    popup.style.top = e.pageY + "px";
+    const popupHeight = 150; // approx height of popup box
+let top = e.pageY - popupHeight;
+if (top < 0) top = 10; // keep it in view
+popup.style.top = top + "px";
     popup.classList.remove("hidden");
 
     document.body.classList.add("popup-open");

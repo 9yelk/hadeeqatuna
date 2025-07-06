@@ -5,14 +5,18 @@
   box-sizing: border-box;
 }
 
+/* Lock screen height and prevent scrolling */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 /* Body & fonts */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('assets/background.png') no-repeat center center fixed;
   background-size: cover;
-  overflow-x: hidden;
   position: relative;
-  height: 100vh;
   color: #333;
 }
 
@@ -84,23 +88,29 @@ body {
 
 /* Garden Container */
 .garden-container {
-  position: relative;
-  height: 980px; /* as per your flower image height */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 100%;
   max-width: 1536px;
-  margin: 0 auto 40px;
+  pointer-events: none;
 }
 
 /* Each flower */
 .flower {
   position: absolute;
-  bottom: 100px; /* all stems aligned 100px from bottom */
+  bottom: 35px; /* ADJUSTED: 100px → 35px to fit grass line */
   cursor: pointer;
   user-select: none;
   transition: transform 0.3s ease;
+  pointer-events: auto;
+}
 }
 
 .flower img {
-  width: 100px;
+  width: 120px;
   height: auto;
   image-rendering: pixelated; /* crisp edges */
 }
