@@ -107,7 +107,7 @@ body {
   transition: transform 0.3s ease;
   pointer-events: auto;
 }
-}
+
 
 .flower img {
   width: 120px;
@@ -150,12 +150,12 @@ body {
 /* Floating pixels */
 .floating-pixel {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   background-color: #ffb6c1; /* Light pink */
   opacity: 0;
   image-rendering: pixelated;
-  animation: float 5s linear forwards;
+  animation: float 7s linear forwards;
 }
 
 @keyframes float {

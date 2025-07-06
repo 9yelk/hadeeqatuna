@@ -49,6 +49,25 @@
       }
     }
   </script>
+<script>
+  const correctPassword = "iluvdyelii";
+  const userPassword = prompt("Enter the garden password:");
+  
+  if (userPassword !== correctPassword) {
+    alert("Incorrect password!");
+    document.body.innerHTML = ""; // clear page
+  } else {
+    const bgMusic = document.getElementById("bg-music");
+    
+    // Try playing music directly
+    bgMusic.play().catch(() => {
+      // If autoplay fails (browser blocks), wait for a click
+      document.addEventListener("click", () => {
+        bgMusic.play();
+      }, { once: true });
+    });
+  }
+</script>
 
   <script src="script.js"></script>
 </body>
