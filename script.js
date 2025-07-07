@@ -1,22 +1,3 @@
-// === Password Prompt + Background Music ===
-window.onload = function () {
-  const password = prompt("Enter password:");
-  if (password === "iluvdyelii") {
-    document.getElementById('login-screen').style.display = 'none';
-
-    const bgMusic = document.getElementById("bg-music");
-    bgMusic.play().catch(() => {
-      document.addEventListener("click", () => {
-        bgMusic.play();
-      }, { once: true });
-    });
-
-  } else {
-    alert("Incorrect password!");
-    document.body.innerHTML = ""; // Blank screen if incorrect
-  }
-};
-
 // === Compliment popup ===
 const flowers = document.querySelectorAll(".flower");
 const popup = document.getElementById("popup");
